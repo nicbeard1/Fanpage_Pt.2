@@ -1,0 +1,33 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+<h1>Lego Hero Factory</h1>
+<p>Enter your credentials, Hero!</p>
+
+<!-- login form -->
+
+<form action="logindb.php" method="POST">
+  <label for="email">email:</label><br>
+  <input type="text" id="email" name="email" value=""><br>
+  <label for="password">password:</label><br>
+  <input type="text" id="password" name="password" value=""><br><br>
+
+<!-- error message -->
+
+  <?php
+    if (isset($_SESSION['login_error_msg'])) {
+      echo "<p>" . $_SESSION['login_error_msg'] . "</p>";
+      unset($_SESSION['login_error_msg']);
+    }
+  ?>
+  <!-- submit details -->
+  <input type="submit" value="login">
+</form>
+
+</body>
+</html>
